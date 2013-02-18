@@ -5,53 +5,57 @@
 @using Cassette.Nancy
 
 @{
-    Bundles.Reference("public/css"); 
+	Bundles.Reference("public/css"); 
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Bootstrap Helpers</title>
-    <meta content="twitter, bootstrap, helpers, nancyfx, .net, web, html"
-        name="keywords" />
-    @Bundles.RenderStylesheets()
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Bootstrap Helpers</title>
+	<meta content="twitter, bootstrap, helpers, nancyfx, .net, web, html"
+		name="keywords" />
+	@Bundles.RenderStylesheets()
+	<style>
+		body {
+			padding-top: 60px;
+		}
+	</style>
+	<script src="http://yui.yahooapis.com/3.8.1/build/yui/yui-min.js"></script>
 
-    <script src="http://yui.yahooapis.com/3.8.1/build/yui/yui-min.js"></script>
-
-    @RenderSection("HeadArea", required: false)
+	@RenderSection("HeadArea", required: false)
 
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="brand" href="#">Project name</a>
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-        </div>
-    </div>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#">Project name</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
 
-    <div class="container">
+	<div class="container">
 
-        <h1>Bootstrap starter template</h1>
-        @RenderBody()
+		<h1>Bootstrap starter template</h1>
+		@RenderBody()
 
-    </div>
-    <!-- /container -->
-    @RenderSection("FooterArea", required: false)
+	</div>
+	<!-- /container -->
+	@RenderSection("FooterArea", required: false)
 </body>
 </html>

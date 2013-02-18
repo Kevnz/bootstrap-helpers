@@ -85,19 +85,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\css\bootstrap-responsive.css" />
-    <Content Include="Public\css\bootstrap-responsive.min.css" />
     <Content Include="Public\css\bootstrap.css" />
-    <Content Include="Public\css\bootstrap.min.css" />
+    <Content Include="Public\css\bundle.txt" />
     <Content Include="Public\img\glyphicons-halflings-white.png" />
     <Content Include="Public\img\glyphicons-halflings.png" />
     <Content Include="Public\js\bootstrap.js" />
     <Content Include="Public\js\bootstrap.min.js" />
+    <Content Include="Views\Index.cshtml" />
     <None Include="Views\_Layout.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bootstrap.cs" />
     <Compile Include="CassetteConfiguration.cs" />
+    <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,9 +110,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modules\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
