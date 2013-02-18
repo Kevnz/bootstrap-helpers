@@ -94,7 +94,6 @@ namespace BootstrapHelpers
 			public static IHtmlString Button<T>(this HtmlHelpers<T> helper, string label, string btnClass ="primary", string btnType = "submit")
 			{
 				var result = string.Format("<button type=\"{1}\" class=\"btn btn-{2}\">{0}</button>", label, btnType, btnClass.ToLower());
- 
 				return new NonEncodedHtmlString(result);
 			}
 
