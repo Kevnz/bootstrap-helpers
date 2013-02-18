@@ -1,6 +1,23 @@
-﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
-
+﻿@using System.Collections.Generic
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
 @{
-  Layout = "_Layout.cshtml";
-}   
-<h2>title</h2>
+	Layout = "_Layout.cshtml";
+}
+<h2>Breadcrumb</h2>
+
+@Html.Breadcrumb(new List<Link> { new Link { Href = "/", Text = "Home" }, new Link { Href = "/one", Text = "One" }, new Link { Text = "Here" } })
+
+<h2>Forms</h2>
+<form>
+	<fieldset>
+		<legend>Legend</legend>
+		@Html.GetInputRow("My Value", "No Help Text")
+		@Html.GetInputRow("My Other Value", "With Help Text", "This has some help text")
+		<label class="checkbox">
+			<input type="checkbox">
+			Check me out
+		</label>
+		@Html.Button("Save" )  
+		@Html.Button("Cancel", "Link", btnType:"button") 
+	</fieldset>
+</form>

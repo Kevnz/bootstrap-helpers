@@ -71,28 +71,33 @@ namespace BootstrapHelpers
 				return new NonEncodedHtmlString(result);
 			}
 
-			public static IHtmlString GetInputRow<T>(this HtmlHelpers<T> helper, object val, string label)
+			public static IHtmlString GetInputRow<T>(this HtmlHelpers<T> helper, object val, string label, string help = "" ) 
 			{
 				var result = "<div class=\"control-group\">";
-				result += "<label>" + label + "<label>";
-				result += "<input type=\"text\" placeholder=\"\" value=\"@Model.User.Email\" id=\"Email\" name=\"Email\" class=\"required\"/>";
-				result += "<span class=\"help-block\">The users email address, used for logging into the system.</span>";
+				result += string.Format("<label>{0}<label>", label);
+				result += string.Format("<input type=\"text\" placeholder=\"\" value=\"{0}\" id=\"{1}\" name=\"{1}\" class=\"required\"/>", val, label.Replace(" ", ""));
+				if(!string.IsNullOrEmpty(help))
+					result += string.Format("<span class=\"help-block\">{0}</span>", help);
 				result += "</div>";
 				return new NonEncodedHtmlString(result);
 			}
 
 			public static IHtmlString Breadcrumb<T>(this HtmlHelpers<T> helper, List<Link> links)
 			{
-				
- 
 				var result = "<ul class=\"breadcrumb\">";
 				for (int i = 0; i < links.Count; i++){
-					result += "<li><a href=\"" + links[i].Href + "\">" + links[i].Text + "</a>";
-					result += i < (links.Count - 1) ? "<li><a href=\"" + links[i].Href + "\">" + links[i].Text + "</a>" + "<span class=\"divider\">/</span></li>" : "<li class=\"active\">" + links[i].Text + "</li>";
+					result += i < (links.Count - 1) ? string.Format("<li><a href=\"{0}\">{1}</a><span class=\"divider\">/</span></li>", links[i].Href, links[i].Text) : string.Format("<li class=\"active\">{0}</li>", links[i].Text);
 				}
 				result += "</ul>";
 				return new NonEncodedHtmlString(result);
 			}
+			public static IHtmlString Button<T>(this HtmlHelpers<T> helper, string label, string btnClass ="primary", string btnType = "submit")
+			{
+				var result = string.Format("<button type=\"{1}\" class=\"btn btn-{2}\">{0}</button>", label, btnType, btnClass.ToLower());
+ 
+				return new NonEncodedHtmlString(result);
+			}
+
 		}
  
 
